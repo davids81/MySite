@@ -176,6 +176,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\MySiteDb.mdf" />
+    <Content Include="App_Data\MySiteDb_log.ldf">
+      <DependentUpon>MySiteDb.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -198,6 +202,10 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="SqlScripts\dbo.Comments.sql" />
+    <Content Include="SqlScripts\dbo.PostDetails.sql" />
+    <Content Include="SqlScripts\dbo.Posts.sql" />
+    <Content Include="SqlScripts\dbo.Users.sql" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -237,9 +245,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Extra.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
