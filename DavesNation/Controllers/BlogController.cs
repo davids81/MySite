@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DavesNation.Models;
 
 namespace DavesNation.Controllers
 {
@@ -14,10 +15,26 @@ namespace DavesNation.Controllers
             return View();
         }
 
-        public ActionResult Edit()
+        public ActionResult Edit(int Id)
         {
+            PostEntry pe = PostRepository.GetPost(Id);
+            ViewBag.PostEntry = pe;
+            return View(pe);
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult Edit(int Id, FormCollection form)
+        {
+            PostEntry pe = PostRepository.GetPost(Id);
+            pe.Title = Request["PostTitle"];
+            pe.Text = Request["BlogText"];
+
+            PostRepository.SavePost(pe);
+
             return View();
         }
+
+
 
         public ActionResult EditList()
         {

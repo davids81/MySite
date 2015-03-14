@@ -1,8 +1,28 @@
 ﻿
+
+@using DavesNation.Models;
+
 @{
+     
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    PostEntry pe = ViewBag.PostEntry;
 }
 
 <h2>Edit</h2>
+
+@Html.BeginForm()
+
+    <label for="PostName">Post Title:</label>
+    @Html.TextBox("PostTitle", pe.Title)
+    
+    
+    <label for="BlogText">Blog Text:</label>
+    @Html.TextArea("BlogText");
+    
+    
+    <input type="submit" value="UpdatePost">
+
+@Html.EndForm()
+
 
